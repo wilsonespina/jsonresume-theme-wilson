@@ -1,24 +1,21 @@
-var fs = require("fs");
-var path = require('path');
-var Handlebars = require("handlebars");
-var resumeJson = require("./resume.json");
-
+const fs = require("fs");
+const path = require('path');
+const Handlebars = require("handlebars");
 
 function render(resume) {
-	console.log('>>>>>>>>>>>>HERE!!!')
-	var css = fs.readFileSync(__dirname + "/style.css", "utf-8");
-	var tpl = fs.readFileSync(__dirname + "/resume.hbs", "utf-8");
-	var partialsDir = path.join(__dirname, 'partials');
-	var filenames = fs.readdirSync(partialsDir);
+	const css = fs.readFileSync(__dirname + "/style.css", "utf-8");
+	const tpl = fs.readFileSync(__dirname + "/resume.hbs", "utf-8");
+	const partialsDir = path.join(__dirname, 'partials');
+	const filenames = fs.readdirSync(partialsDir);
 
 	filenames.forEach(function (filename) {
-	  var matches = /^([^.]+).hbs$/.exec(filename);
+	  const matches = /^([^.]+).hbs$/.exec(filename);
 	  if (!matches) {
 	    return;
 	  }
-	  var name = matches[1];
-	  var filepath = path.join(partialsDir, filename)
-	  var template = fs.readFileSync(filepath, 'utf8');
+	  const name = matches[1];
+	  const filepath = path.join(partialsDir, filename)
+	  const template = fs.readFileSync(filepath, 'utf8');
 
 	  Handlebars.registerPartial(name, template);
 	});
@@ -28,14 +25,24 @@ function render(resume) {
 	});
 }
 
-// render(resumeJson)
-var data = JSON.parse(fs.readFileSync('./resume.json', 'utf8'));
-console.log("->========= ~ data", data)
-var result = render(data);
 
-console.log('RES',result);
 
-fs.writeFileSync('./index.html', result);
+const data = JSON.parse(fs.readFileSync('./resume.json', 'utf8'));
+console.log("-> >>>>data", data)
+const result = render(data);
+
+//Loads the express module
+const express = require('express');
+//Creates our express server
+const app = express();
+const port = 3000;
+//Serves static files (we need it to import a css file)
+app.use(express.static('public'))
+//Sets a basic route
+app.get('/', (req, res) => res.send(result));
+
+//Makes the app listen to port 3000
+app.listen(port, () => console.log(`App listening to port ${port}`));
 
 module.exports = {
 	render: render

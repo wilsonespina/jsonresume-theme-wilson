@@ -1,8 +1,11 @@
 var fs = require("fs");
 var path = require('path');
 var Handlebars = require("handlebars");
+var resumeJson = require("./resume.json");
+
 
 function render(resume) {
+	console.log('>>>>>>>>>>>>HERE!!!')
 	var css = fs.readFileSync(__dirname + "/style.css", "utf-8");
 	var tpl = fs.readFileSync(__dirname + "/resume.hbs", "utf-8");
 	var partialsDir = path.join(__dirname, 'partials');
@@ -24,6 +27,15 @@ function render(resume) {
 		resume: resume
 	});
 }
+
+// render(resumeJson)
+var data = JSON.parse(fs.readFileSync('./resume.json', 'utf8'));
+console.log("->========= ~ data", data)
+var result = render(data);
+
+console.log('RES',result);
+
+fs.writeFileSync('./index.html', result);
 
 module.exports = {
 	render: render

@@ -7,8 +7,17 @@
     "type": "git",
     "url": "https://github.com/erming/jsonresume-theme-boilerplate"
   },
+  "scripts": {
+    "start": "rm ./public/index.html && resume serve",
+    "css": "node-sass --include-path scss ./styles/style.scss ./style.css",
+    "watch": "nodemon -e scss -x 'npm run css'"
+  },
   "license": "MIT",
   "dependencies": {
     "handlebars": "^2.0.0-alpha.4"
+  },
+  "devDependencies": {
+    "node-sass": "^7.0.1",
+    "nodemon": "^2.0.15"
   }
 }

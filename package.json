@@ -9,17 +9,17 @@
     "url": "https://github.com/wilsonespina/jsonresume-theme-wilson"
   },
   "scripts": {
-    "start": "nodemon index.js & npm run watch",
-    "css": "node-sass --include-path scss ./styles/style.scss ./style.css",
-    "watch": "nodemon -e scss -x 'npm run css'"
+    "dev": "nodemon --ext js,hbs,scss,css,json",
+    "watch": "nodemon -e scss -x 'npm run css'",
+    "css": "node-sass --include-path scss ./styles/style.scss ./style.css"
   },
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
+    "connect-livereload": "^0.6.1",
     "express": "^4.17.3",
     "express-handlebars": "^6.0.3",
-    "handlebars": "^4.7.7"
-  },
-  "devDependencies": {
+    "handlebars": "^4.7.7",
+    "livereload": "^0.9.3",
     "node-sass": "^7.0.1",
     "nodemon": "^2.0.15",
     "sass": "^1.49.9"

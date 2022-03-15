@@ -5,7 +5,6 @@ const resumeJson = require('./resume.json');
 
 const { engine } = require ('express-handlebars');
 
-// app.engine('handlebars', engine());
 app.engine('hbs', engine({ extname: '.hbs' }));
 app.set('view engine', 'hbs');
 app.set('views', './views');
@@ -23,8 +22,8 @@ app.listen(port, () => console.log(`App listening to port ${port}`));
 
 function render() {
 	const css = fs.readFileSync(__dirname + "./style.css", "utf-8");
-	const tpl = fs.readFileSync(__dirname + "./resume.hbs", "utf-8");
-	const partialsDir = path.join(__dirname, 'partials');
+	const tpl = fs.readFileSync(__dirname + "./layouts/main.hbs", "utf-8");
+	const partialsDir = path.join(__dirname, 'views/partials');
 	const filenames = fs.readdirSync(partialsDir);
 
 	filenames.forEach(function (filename) {
@@ -43,5 +42,8 @@ function render() {
 		resume: resumeJson
 	});
 }
+
+// console.log("->>>>>>>>templateFunction", templateFunction)
+// document.body.innerHTML = templateFunction();
 
 module.exports = render;

@@ -9,25 +9,19 @@
     "url": "https://github.com/wilsonespina/jsonresume-theme-wilson"
   },
   "scripts": {
-    "start2": "nodemon index.js & npm run watch",
+    "start": "nodemon index.js & npm run watch",
     "css": "node-sass --include-path scss ./styles/style.scss ./style.css",
-    "watch": "nodemon -e scss -x 'npm run css'",
-    "build": "parcel build views/home.hbs --no-cache --public-url ./",
-    "start": "parcel views/home.hbs --no-cache"
+    "watch": "nodemon -e scss -x 'npm run css'"
   },
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.3",
     "express-handlebars": "^6.0.3",
-    "handlebars": "^4.7.7",
-    "parcel-bundler": "^1.12.5",
-    "parcel-plugin-handlebars": "^0.4.4"
+    "handlebars": "^4.7.7"
   },
   "devDependencies": {
-    "@andreyvolokitin/parcel-transformer-handlebars": "0.0.3",
-    "@parcel/transformer-sass": "^2.3.2",
     "node-sass": "^7.0.1",
     "nodemon": "^2.0.15",
-    "parcel": "^2.3.2"
+    "sass": "^1.49.9"
   }
 }

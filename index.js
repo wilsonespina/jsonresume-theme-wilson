@@ -5,12 +5,13 @@ const resumeJson = require('./resume.json');
 
 const { engine } = require ('express-handlebars');
 
-app.engine('hbs', engine());
+// app.engine('handlebars', engine());
+app.engine('hbs', engine({ extname: '.hbs' }));
 app.set('view engine', 'hbs');
 app.set('views', './views');
 
 app.get('/', (req, res) => {
-    res.render('home', {
+    res.render('index', {
 		resume: resumeJson
 	});
 });

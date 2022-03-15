@@ -1,7 +1,7 @@
 {
-  "name": "jsonresume-theme-boilerplate",
-  "version": "0.1.2",
-  "description": "Boilerplate theme for JSON Resume",
+  "name": "jsonresume-theme-wilson",
+  "version": "0.0.1",
+  "description": "Theme for JSON Resume",
   "author": "Wilson Espina",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "repository": {
@@ -9,17 +9,22 @@
     "url": "https://github.com/wilsonespina/jsonresume-theme-wilson"
   },
   "scripts": {
-    "start": "npm run watch & nodemon index.js",
+    "start2": "nodemon index.js & npm run watch",
     "css": "node-sass --include-path scss ./styles/style.scss ./style.css",
-    "watch": "nodemon -e scss -x 'npm run css'"
+    "watch": "nodemon -e scss -x 'npm run css'",
+    "build": "parcel build views/home.hbs --no-cache --public-url ./",
+    "start": "parcel views/home.hbs --no-cache"
   },
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.3",
     "express-handlebars": "^6.0.3",
-    "handlebars": "^4.7.7"
+    "handlebars": "^4.7.7",
+    "parcel-bundler": "^1.12.5",
+    "parcel-plugin-handlebars": "^0.4.4"
   },
   "devDependencies": {
+    "@andreyvolokitin/parcel-transformer-handlebars": "0.0.3",
     "@parcel/transformer-sass": "^2.3.2",
     "node-sass": "^7.0.1",
     "nodemon": "^2.0.15",

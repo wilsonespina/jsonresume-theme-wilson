@@ -2,23 +2,27 @@
   "name": "jsonresume-theme-boilerplate",
   "version": "0.1.2",
   "description": "Boilerplate theme for JSON Resume",
-  "author": "Mattias Erming",
+  "author": "Wilson Espina",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "repository": {
     "type": "git",
-    "url": "https://github.com/erming/jsonresume-theme-boilerplate"
+    "url": "https://github.com/wilsonespina/jsonresume-theme-wilson"
   },
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "npm run watch & nodemon index.js",
     "css": "node-sass --include-path scss ./styles/style.scss ./style.css",
     "watch": "nodemon -e scss -x 'npm run css'"
   },
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.3",
-    "handlebars": "^2.0.0-alpha.4"
+    "express-handlebars": "^6.0.3",
+    "handlebars": "^4.7.7"
   },
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.3.2",
     "node-sass": "^7.0.1",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "parcel": "^2.3.2"
   }
 }

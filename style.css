@@ -1,3 +1,22 @@
+.aside {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px;
+  background: #fff;
+  display: flex;
+  flex-direction: column; }
+  .aside .bar {
+    flex-basis: 80px; }
+    .aside .bar--yellow {
+      background: #E6D550; }
+    .aside .bar--green {
+      background: #A6E22E; }
+    .aside .bar--blue {
+      background: #5CD0EF; }
+    .aside .bar--pink {
+      background: #F92672; }
+
 body {
   background: #a8afb1;
   font: 15px Arial, Helvetica, sans-serif;
@@ -50,11 +69,3 @@ blockquote {
 #skills .item {
   float: left;
   width: 50%; }
-
-#aside {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 20px;
-  background: #fff; }

@@ -1,5 +1,7 @@
+@import "colors";
+
 body {
-	background: pink;
+	background: $color-main-background;
 	font: 15px Arial, Helvetica, sans-serif;
 	line-height: 1.4;
 	margin: 50px 0;
@@ -50,6 +52,17 @@ blockquote {
 #skills .item {
 	float: left;
 	width: 50%;
+}
+
+
+
+#aside {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: 20px;
+	background: #fff;
 }
 
 
